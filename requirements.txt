@@ -1,0 +1,9 @@
+mediapipe==0.10.1
+opencv-python>=4.5
+numpy>=1.21
+pandas
+scikit-learn
+joblib
+streamlit
+matplotlib
+tqdm

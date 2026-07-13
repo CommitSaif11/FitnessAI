@@ -1,0 +1,518 @@
+{
+  "train": [
+    {
+      "video_id": "squats_21",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_21.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_25",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_25.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_35",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_35.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_35",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_35.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_01",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_01.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_06",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_06.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_02",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_02.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_25",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_25.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_20",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_20.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_36",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_36.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_30",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_30.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_24",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_24.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_06",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_06.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_14",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_14.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_23",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_23.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_03",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_03.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_37",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_37.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_10",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_10.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_01",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_01.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_14",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_14.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_17",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_17.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_04",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_04.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_31",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_31.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_32",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_32.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_22",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_22.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_16",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_16.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_34",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_34.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_12",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_12.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_13",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_13.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_19",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_19.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_18",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_18.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_20",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_20.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_23",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_23.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_03",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_03.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_01",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_01.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_18",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_18.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_28",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_28.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_26",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_26.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_05",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_05.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_27",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_27.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_11",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_11.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_02",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_02.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_09",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_09.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_06",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_06.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_29",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_29.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_27",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_27.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_13",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_13.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_02",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_02.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_04",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_04.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_24",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_24.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_12",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_12.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_28",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_28.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_07",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_07.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_11",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_11.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_32",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_32.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_29",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_29.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_04",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_04.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_13",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_13.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_37",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_37.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_10",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_10.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_22",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_22.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_17",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_17.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_05",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_05.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_25",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_25.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_08",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_08.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_12",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_12.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "biceps_curl_22",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_22.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_17",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_17.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_36",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_36.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_09",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_09.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_33",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_33.mp4",
+      "label": "shoulder_press"
+    }
+  ],
+  "val": [
+    {
+      "video_id": "biceps_curl_24",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_24.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_10",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_10.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_07",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_07.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_05",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_05.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_19",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_19.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_28",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_28.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_16",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_16.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_34",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_34.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_20",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_20.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_18",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_18.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_07",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_07.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_26",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_26.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_15",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_15.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_27",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_27.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_08",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_08.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_14",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_14.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_15",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_15.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_23",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_23.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_33",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_33.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_09",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_09.mp4",
+      "label": "shoulder_press"
+    }
+  ],
+  "test": [
+    {
+      "video_id": "biceps_curl_15",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_15.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_21",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_21.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "biceps_curl_11",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_11.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "shoulder_press_03",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_03.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "shoulder_press_19",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_19.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_08",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_08.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "shoulder_press_30",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\shoulder_press_30.mp4",
+      "label": "shoulder_press"
+    },
+    {
+      "video_id": "squats_26",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_26.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "squats_31",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_31.mp4",
+      "label": "squat"
+    },
+    {
+      "video_id": "biceps_curl_21",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\biceps_curl_21.mp4",
+      "label": "biceps_curl"
+    },
+    {
+      "video_id": "squats_16",
+      "path": "C:\\Users\\hp\\Desktop\\python fitness ai trial\\data\\raw\\squats_16.mp4",
+      "label": "squat"
+    }
+  ]
+}

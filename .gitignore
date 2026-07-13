@@ -1,0 +1,30 @@
+# Virtual environments
+.venv38/
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Data (raw videos, extracted landmarks - large/regeneratable via scripts/)
+data/raw/
+data/landmarks/
+data/landmarks_v2/
+data/features/
+!data/features_v2/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets / env
+.env

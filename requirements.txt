@@ -19,5 +19,9 @@ streamlit==1.25.0
 matplotlib==3.7.5
 Pillow==9.5.0
 
+# LLM coaching feedback
+groq
+python-dotenv
+
 # Notebook kernel ()
 ipykernel==6.29.5

@@ -7,6 +7,7 @@
 # - Counts in both Webcam and Upload modes (so it's obvious in the demo)
 # - Matches the XGBoost notebook feature schema
 
+import os
 import time
 from collections import deque, Counter
 from pathlib import Path
@@ -18,6 +19,61 @@ import pandas as pd
 import cv2
 import joblib
 import mediapipe as mp
+from dotenv import load_dotenv
+from groq import Groq
+
+load_dotenv()
+
+# ---------------- Groq AI coaching ---------------- #
+
+GROQ_MODEL = "llama-3.1-8b-instant"
+GROQ_LIVE_INTERVAL_SEC = 5.0  # min seconds between live coaching calls (rate limit + latency control)
+
+@st.cache_resource
+def get_groq_client():
+    api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        return None
+    return Groq(api_key=api_key)
+
+def groq_live_tip(client, exercise: str, rep_count: int, issue_counts: dict) -> str:
+    issues_text = ", ".join(f"{k} ({v}x)" for k, v in issue_counts.items()) or "none noted"
+    prompt = (
+        f"You are a concise, encouraging fitness coach watching someone do {exercise.replace('_', ' ')} live. "
+        f"They've completed {rep_count} reps so far. Recent form issues detected: {issues_text}. "
+        "In ONE short sentence (max 15 words), give a single actionable coaching cue or encouragement. "
+        "No preamble, no markdown, just the sentence."
+    )
+    resp = client.chat.completions.create(
+        model=GROQ_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.6,
+        max_tokens=40,
+    )
+    return resp.choices[0].message.content.strip()
+
+def groq_session_summary(client, session_stats: dict) -> str:
+    lines = []
+    for ex, stats in session_stats.items():
+        if stats["reps"] == 0 and not stats["issues"]:
+            continue
+        issues_text = ", ".join(f"{k} ({v}x)" for k, v in stats["issues"].items()) or "none noted"
+        lines.append(f"{ex.replace('_', ' ')}: {stats['reps']} reps, form issues: {issues_text}")
+    if not lines:
+        return "No exercise activity recorded this session."
+    prompt = (
+        "You are a fitness coach reviewing a just-finished workout session. Here is the data:\n"
+        + "\n".join(lines)
+        + "\n\nWrite a short (3-4 sentence) friendly summary: what went well, the main thing to "
+        "improve next time, and one word of encouragement. No markdown, plain text."
+    )
+    resp = client.chat.completions.create(
+        model=GROQ_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.6,
+        max_tokens=200,
+    )
+    return resp.choices[0].message.content.strip()
 
 # ---------------- Load model artifacts ---------------- #
 
@@ -232,34 +288,54 @@ press_bottom = st.sidebar.slider("Press bottom elbow ≥", 70, 140, 95)
 sq_stand = st.sidebar.slider("Squat stand knee ≥", 150, 180, 160)
 sq_depth = st.sidebar.slider("Squat depth knee ≤", 60, 110, 100)
 
+groq_client = get_groq_client()
+st.sidebar.markdown("---")
+use_groq = st.sidebar.checkbox("Enable Groq AI coaching (live + summary)", value=groq_client is not None)
+if use_groq and groq_client is None:
+    st.sidebar.warning("GROQ_API_KEY not set in .env — AI coaching disabled.")
+    use_groq = False
+
 start = st.sidebar.button("Start")
 stop = st.sidebar.button("Stop")
 
-# Top area: feedback strip + reps row + video + confidences
+# Top area: feedback strip + AI coach + reps row + video + confidences
 feedback_slot = st.empty()
+ai_slot = st.empty()
 reps_slot = st.empty()
 frame_slot = st.empty()
 conf_slot = st.empty()
+summary_slot = st.empty()
+
+def fresh_counters():
+    return {
+        "bicep_curl": SimpleCounter(top_low=curl_top, bottom_high=curl_bottom, invert=False),
+        "shoulder_press": SimpleCounter(top_low=press_top, bottom_high=press_bottom, invert=False),
+        "squats": SimpleCounter(top_low=(180 - sq_stand), bottom_high=(180 - sq_depth), invert=True),
+    }
+
+def fresh_session_stats():
+    return {ex: {"reps": 0, "issues": Counter()} for ex in ("bicep_curl", "shoulder_press", "squats")}
 
 if "running" not in st.session_state:
     st.session_state.running = False
 if "counters" not in st.session_state:
-    st.session_state.counters = {
-        "bicep_curl": SimpleCounter(top_low=curl_top, bottom_high=curl_bottom, invert=False),
-        "shoulder_press": SimpleCounter(top_low=press_top, bottom_high=press_bottom, invert=False),
-        "squats": SimpleCounter(top_low=(180 - sq_stand), bottom_high=(180 - sq_depth), invert=True),
-    }
+    st.session_state.counters = fresh_counters()
+if "session_stats" not in st.session_state:
+    st.session_state.session_stats = fresh_session_stats()
+if "last_groq_call" not in st.session_state:
+    st.session_state.last_groq_call = 0.0
+if "needs_summary" not in st.session_state:
+    st.session_state.needs_summary = False
 
 if start:
     st.session_state.running = True
-    # reset counters for a clean demo
-    st.session_state.counters = {
-        "bicep_curl": SimpleCounter(top_low=curl_top, bottom_high=curl_bottom, invert=False),
-        "shoulder_press": SimpleCounter(top_low=press_top, bottom_high=press_bottom, invert=False),
-        "squats": SimpleCounter(top_low=(180 - sq_stand), bottom_high=(180 - sq_depth), invert=True),
-    }
+    st.session_state.needs_summary = False
+    # reset counters + session stats for a clean demo
+    st.session_state.counters = fresh_counters()
+    st.session_state.session_stats = fresh_session_stats()
 if stop:
     st.session_state.running = False
+    st.session_state.needs_summary = True
 
 # Load model once
 try:
@@ -356,6 +432,9 @@ def run_capture(capture):
                     rule_label = "squat" if fb_label == "squats" else fb_label
                     msg, sev = simple_feedback(rule_label, list(feedback_win))
                     set_feedback(msg, sev)
+                    if fb_label in st.session_state.session_stats and sev == "warn":
+                        for issue in msg.split(" | "):
+                            st.session_state.session_stats[fb_label]["issues"][issue] += 1
 
                 # Count reps if we know what to count
                 if active in ("bicep_curl", "shoulder_press", "squats"):
@@ -364,9 +443,34 @@ def run_capture(capture):
                     else:
                         val = min(sig["knee_L"], sig["knee_R"])  # squats
                     counters[active].update(val)
+                    st.session_state.session_stats[active]["reps"] = counters[active].count
 
                 # Update counters display
                 show_reps({k: c.count for k, c in counters.items()})
+
+                # Live Groq coaching tip (rate-limited)
+                if use_groq and groq_client is not None and fb_label in st.session_state.session_stats:
+                    now = time.time()
+                    if now - st.session_state.last_groq_call >= GROQ_LIVE_INTERVAL_SEC:
+                        st.session_state.last_groq_call = now
+                        try:
+                            tip = groq_live_tip(
+                                groq_client,
+                                fb_label,
+                                st.session_state.session_stats[fb_label]["reps"],
+                                dict(st.session_state.session_stats[fb_label]["issues"]),
+                            )
+                            ai_slot.markdown(
+                                f"""<div style="background:#4527A0; color:white; padding:8px 14px;
+                                border-radius:6px; font-size:15px; font-style:italic;">🤖 {tip}</div>""",
+                                unsafe_allow_html=True,
+                            )
+                        except Exception as e:
+                            ai_slot.markdown(
+                                f"""<div style="background:#616161; color:white; padding:6px 14px;
+                                border-radius:6px; font-size:13px;">AI coach unavailable: {e}</div>""",
+                                unsafe_allow_html=True,
+                            )
 
                 if proba is not None:
                     conf_df = pd.DataFrame({"class": classes_, "prob": proba}).sort_values("prob", ascending=False)
@@ -404,3 +508,17 @@ if st.session_state.running:
                     cap.release()
 else:
     st.info("Press Start in the sidebar to begin.")
+    if st.session_state.needs_summary:
+        st.session_state.needs_summary = False
+        if use_groq and groq_client is not None:
+            with st.spinner("Generating session summary..."):
+                try:
+                    summary = groq_session_summary(groq_client, st.session_state.session_stats)
+                    summary_slot.markdown(
+                        f"""<div style="background:#1A237E; color:white; padding:14px 18px;
+                        border-radius:8px; font-size:16px; margin-top:12px;">
+                        <b>Session summary</b><br/>{summary}</div>""",
+                        unsafe_allow_html=True,
+                    )
+                except Exception as e:
+                    summary_slot.warning(f"Could not generate AI session summary: {e}")

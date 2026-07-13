@@ -87,7 +87,8 @@ now uninstall it — everything runs through uv's managed Python + `.venv` inste
 
 ## Environment variables (Groq LLM key)
 
-Live/summary coaching feedback (planned, see Roadmap) uses the [Groq API](https://console.groq.com/).
+Live and end-of-session AI coaching feedback uses the [Groq API](https://console.groq.com/) (free tier,
+`llama-3.1-8b-instant` model).
 
 1. Copy `.env.example` to `.env`:
    ```bash
@@ -100,6 +101,20 @@ Live/summary coaching feedback (planned, see Roadmap) uses the [Groq API](https:
 
 `.env` is git-ignored — never commit real API keys. If a key is ever pasted into a chat, shared publicly,
 or committed by accident, rotate it immediately in the Groq console.
+
+### What the Groq integration does
+
+In the demo sidebar, "Enable Groq AI coaching (live + summary)" is on by default whenever `GROQ_API_KEY`
+is set (a warning shows and it auto-disables if the key is missing, so the app still runs fine without it
+using only the rule-based feedback strip). When enabled:
+
+- **Live coaching**: every ~5 seconds during a session, recent rep count and form-issue tallies for the
+  active exercise are sent to Groq, which returns a one-sentence coaching cue shown in a purple strip
+  below the rule-based feedback. If the call fails or is slow, it degrades gracefully (rule-based feedback
+  keeps working regardless).
+- **Session summary**: when you press Stop, accumulated rep counts and form-issue tallies across all
+  three exercises are sent to Groq for a short natural-language summary (what went well, what to improve),
+  shown at the bottom of the page.
 
 ## Regenerating data (optional)
 
@@ -129,5 +144,5 @@ Point the sidebar "Model file" field at a trained model directory under `models/
 ## Roadmap
 
 - [ ] Deep learning (LSTM) sequence model as an alternative to the window-stats + XGBoost approach
-- [ ] Live LLM-generated coaching feedback (Groq) replacing/augmenting the rule-based feedback strip
+- [x] Live + end-of-session LLM coaching feedback (Groq)
 - [ ] Browser-based webcam capture (streamlit-webrtc) for a cloud-deployed live demo

@@ -210,8 +210,12 @@ class SimpleCounter:
 st.set_page_config(page_title="Fitness AI — Minimal Demo", layout="wide")
 st.title("Fitness AI — Minimal Demo (Feedback + Reps)")
 
+def find_default_model() -> str:
+    candidates = sorted(Path("models").glob("*/xgb_model.joblib"))
+    return str(candidates[-1]) if candidates else "models/xgb_YYYYmmdd_HHMMSS/xgb_model.joblib"
+
 # Sidebar controls
-model_path = st.sidebar.text_input("Model file", value="models/xgb_YYYYmmdd_HHMMSS/xgb_model.joblib")
+model_path = st.sidebar.text_input("Model file", value=find_default_model())
 mode = st.sidebar.radio("Mode", ["Webcam", "Upload video"], index=0)
 exercise_mode = st.sidebar.radio("Exercise mode", ["Auto (from model)", "Force"], index=1)
 forced_ex = st.sidebar.selectbox("Force exercise", ["biceps_curl", "shoulder_press", "squats"], index=1)  # default press per your screenshot
